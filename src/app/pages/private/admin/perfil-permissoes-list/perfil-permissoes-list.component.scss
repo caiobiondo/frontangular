@@ -1,0 +1,36 @@
+.perfil-permissoes-list {
+  padding: 20px;
+
+  &-title{
+    padding-right: 40px;
+    color: #fcb62b;
+    font-weight: 700;
+    font-size: 24px;
+  }
+
+  &-span {
+    font-weight: bold;
+    color: #fcb62b;
+    font-size: 24px;
+    margin-right: 50px;
+  }
+
+  &-select {
+    border: 1px solid #C4C4C4;
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+
+  &-btn {
+    background-color: #fcb62b;
+    border: 1px solid #fcb62b;
+    border-radius: 15px;
+
+    width: 322px;
+    height: 32px;
+    margin: 0;
+
+    font-weight: bold;
+    color: #FFFFFF;
+  }
+}

@@ -1,0 +1,14 @@
+:host{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 40px;
+  padding: 0 30px;
+  background: #FCB62B;
+}
+
+img{
+  cursor: pointer;
+  width: 22px;
+  height: 26px;
+}

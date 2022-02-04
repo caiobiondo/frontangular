@@ -1,0 +1,91 @@
+<div class="container-dashboard">
+  <div *ngIf="isSend == false" class="content">
+    <header>
+      <img src="./assets/logo-white.png" alt="" />
+      <h1>Cadastre-se</h1>
+      <span class="close" (click)="goBack()">
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 14 14"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z"
+            fill="#FFFAFA"
+          />
+        </svg>
+      </span>
+    </header>
+
+    <form [formGroup]="signUpForm" (ngSubmit)="formSubmit()" novalidate>
+      <div class="form-group">
+        <label for="">Nome de usuário</label>
+        <input type="text" formControlName="username"/>
+        <div class="error" *ngIf="signUpForm.controls['username'].invalid && (signUpForm.controls['username'].dirty || signUpForm.controls['username'].touched)">
+          <span>Nome de usuário não pode ficar em branco!</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="">Nome</label>
+        <input type="text" formControlName="first_name"/>
+        <div class="error" *ngIf="signUpForm.controls['first_name'].invalid && (signUpForm.controls['first_name'].dirty || signUpForm.controls['first_name'].touched)">
+          <span>Nome não pode ficar em branco!</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="">CNPJ</label>
+        <input type="tel" formControlName="cnpj" mask="00.000.000/0000-00" />
+        <div class="error" *ngIf="signUpForm.controls['cnpj'].invalid && (signUpForm.controls['cnpj'].dirty || signUpForm.controls['cnpj'].touched)">
+          <span>CNPJ não pode ficar em branco!</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="">Email</label>
+        <input type="text" formControlName="email"/>
+        <div class="error" *ngIf="signUpForm.controls['email'].invalid && (signUpForm.controls['email'].dirty || signUpForm.controls['email'].touched)">
+          <span>Email não pode ficar em branco!</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="">Senha</label>
+        <div class="passRow">
+          <input type="password" [type]="eyePass ? 'text' : 'password'" (input)="confirmPassword()" formControlName="password"/>
+          <i class="far" (click)="toggleEyePass()" [ngClass]="eyePass == false ? 'fa-eye-slash' : 'fa-eye'"></i>
+        </div>
+        <span>08 caracteres, sendo pelo menos um deles em letra maiúscula, 1 (um) numeral e 1 (um) símbolo (@, #, %, &, *).</span>
+      </div>
+
+      <div class="form-group">
+        <label for="">Confirmar Senha</label>
+        <div class="passRow">
+          <input type="password" [type]="eyeReapetPass ? 'text' : 'password'" (input)="confirmPassword()" formControlName="password2"/>
+          <i class="far" (click)="toggleEyeReapetPass()" [ngClass]="eyeReapetPass == false ? 'fa-eye-slash' : 'fa-eye'"></i>
+        </div>
+      </div>
+
+      <button [disabled]="signUpForm.valid == false ? true : false" type="submit">Enviar</button>
+    </form>
+  </div>
+  <div class="content" *ngIf="isSend == true">
+    <header style="width: 90%;">
+      <img src="./assets/logo-white.png" alt="" />
+    </header>
+    <div class="textSend">
+      <p>
+        Você acaba de solicitar seu cadastro no Portal do Cliente da CG Contadores.
+      </p>
+      <p>
+        Enviamos uma verificação para o seu email cadastrado.
+      </p>
+      <p>
+        Clique no Link e finalize seu cadastro.
+      </p>
+    </div>
+  </div>
+</div>

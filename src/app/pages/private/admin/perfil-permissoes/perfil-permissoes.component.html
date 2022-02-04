@@ -1,0 +1,54 @@
+<div class="perfil-permissao">
+  <div class="flexRow justify-between mb-5">
+    <div class="flexRow aligh-center perfil-permissao-title">
+      <span class="perfil-permissao-span"> >> Perfil de Acessos</span>
+      <div>
+        <span class="mr15px">Empresa</span>
+        <select class="perfil-permissao-select" (change)="onCnpj($event)">
+          <option [value]=""></option>
+          <option [value]="emp.id" *ngFor="let emp of empresas">{{emp.razao_social}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="mr-3">
+      <button  [disabled]="selectedCnpj == '' " (click)="openUrl('admin/perfil-personalizado')" class="perfil-permissao-btn" [ngClass]="selectedCnpj == '' ? 'perfil-permissao-btn-disabled' : '' ">+ Criar Perfil Personalizado</button>
+    </div>
+  </div>
+
+  <div class="flexRow " *ngIf="perfilPermissoesList.length > 0" >
+    <div *ngFor="let pp of perfilPermissoesList">
+      <div class="flexCol mr-2 mb-5">
+        <div class="perfil-permissao-card mr15px" [ngClass]="pp.show == true ? 'card-radius-open' : 'card-radius-close'">
+          <span> >> {{pp.nome}} <i *ngIf="pp.show == true" (click)="openUrl('admin/perfil-personalizado/cnpj/admin')" class="fas fa-pen cursor-pointer mr15px"></i> <i *ngIf="pp.show == true" (click)="openModal(pp)" class="fas fa-times cursor-pointer"></i></span> <span><i class="fas " (click)="pp.show = !pp.show" [ngClass]="pp.show == true ? 'fa-chevron-up' : 'fa-chevron-down'" ></i></span>
+        </div>
+        <div *ngIf="pp.show == true" [@fadeInOut] class="perfil-permissao-card2">
+          <div>
+            <div *ngFor="let acesso of pp.perfil_de_acesso">
+              <p class="card-title">{{acesso.nome_perfil_permissao}}</p>
+
+              <div *ngFor="let permissao of acesso.permissoes">
+                <div class="flexRow aligh-center">
+                  <p-inputSwitch [(ngModel)]="permissao.ativo" class="mr15px" (click)="updatePermissao(permissao, acesso)"></p-inputSwitch>
+                  <div class="textColorGray">{{permissao.nome_permissao}}</div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div *ngIf="selectedCnpj != '' && perfilPermissoesList.length == 0">
+    <p class="content__msg">Cadastre um perfil clicando no botão acima!</p>
+  </div>
+
+  <div *ngIf="selectedCnpj == '' ">
+    <p class="content__msg">Selecione uma empresa</p>
+  </div>
+</div>
+
+<p-confirmPopup></p-confirmPopup>

@@ -1,0 +1,87 @@
+.perfil-personalizado {
+  padding: 20px;
+
+  &-title{
+    padding-right: 40px;
+    color: #fcb62b;
+    font-weight: 700;
+    font-size: 24px;
+  }
+
+  &-span {
+    font-weight: bold;
+    margin-right: 50px;
+  }
+
+  &-select {
+    border: 1px solid #C4C4C4;
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+
+  &-btn {
+    background-color: #fcb62b;
+    border: 1px solid #fcb62b;
+    border-radius: 0;
+
+    width: 154px;
+    height: 32px;
+    margin: 0;
+
+    font-weight: bold;
+    color: #FFFFFF;
+  }
+
+  &-card {
+    background-color: #fcb62b;
+    color: #FFFFFF;
+    font-size: 24px;
+
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    width: 960px;
+    height: 80px;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    z-index: 1;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    border-radius: 15px 15px 0 0;
+
+    input {
+      background-color: transparent;
+      color: #FFFFFF;
+      width: 200px;
+      font-size: 18px;
+    }
+  }
+  &-card2 {
+    border-top: none;
+    border-right: 3px solid rgba(252, 182, 43, 0.58);
+    border-bottom: 3px solid rgba(252, 182, 43, 0.58);
+    border-left: 3px solid rgba(252, 182, 43, 0.58);
+    border-radius: 0 0 15px 15px;
+    background-color: #FFFFFF;
+
+    padding: 20px;
+
+    color: #fcb62b;
+  }
+}
+
+.card-radius-close {
+  border-radius: 15px;
+}
+.card-title {
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  color: #fcb62b;
+  margin-bottom: 0;
+  text-align: left;
+  font-size: 18px;
+  line-height: 25px;
+}

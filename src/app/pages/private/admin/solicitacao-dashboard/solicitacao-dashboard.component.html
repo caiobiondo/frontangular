@@ -1,0 +1,73 @@
+<div class="solicitacao-dashboard">
+  <div class="flexRow justify-between mb-5">
+    <div class="solicitacao-dashboard-title">
+      <span class="solicitacao-dashboard-span mr-3"> >> Solicitações</span>
+    </div>
+  </div>
+  <div>
+    <p-table [value]="solicitacoes" #dt>
+      <ng-template pTemplate="caption">
+        <span class="p-input-icon-left">
+          <i class="pi pi-search"></i>
+          <input
+            class="searchInput"
+            #searchInput
+            pInputText
+            type="text"
+            (input)="dt.filterGlobal(searchInput.value, 'contains')"
+            placeholder=""
+          />
+        </span>
+        <button class="solicitacao-dashboard-btn">+ Criar Solicitação</button>
+
+        <div class="flexRow justify-start mt15px">
+          <div class="flexRow mr-2">
+            <label class="solicitacao-dashboard-label">Empresa</label>
+            <select class="solicitacao-dashboard-input-1">
+              <option value="">TAG Comercio de Livros LTDA</option>
+            </select>
+          </div>
+
+          <div class="flexRow mr-2">
+            <label class="solicitacao-dashboard-label">Solicitante</label>
+            <input class="solicitacao-dashboard-input-2" type="text" value="Eduardo Ribeiro">
+          </div>
+
+          <div class="flexRow mr-2">
+            <label class="solicitacao-dashboard-label">Situação</label>
+            <select class="solicitacao-dashboard-input">
+              <option value="">Em Andamento</option>
+            </select>
+          </div>
+
+          <div class="flexRow mr-2">
+            <label class="solicitacao-dashboard-label">Periodo</label>
+            <p-calendar [(ngModel)]="dateNow" selectionMode="range" [touchUI]="true"></p-calendar>
+          </div>
+
+        </div>
+      </ng-template>
+
+      <ng-template pTemplate="header">
+          <tr>
+              <th pSortableColumn="cod">COD <p-sortIcon field="cod"></p-sortIcon></th>
+              <th pSortableColumn="data_abertura">Data de Abertura <p-sortIcon field="data_abertura"></p-sortIcon></th>
+              <th pSortableColumn="titulo">Título <p-sortIcon field="titulo"></p-sortIcon></th>
+              <th pSortableColumn="topico">Tópico <p-sortIcon field="topico"></p-sortIcon></th>
+              <th pSortableColumn="responsavel">Responsável <p-sortIcon field="responsavel"></p-sortIcon></th>
+              <th pSortableColumn="situacao">Situação <p-sortIcon field="situacao"></p-sortIcon></th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-solicitacao>
+          <tr>
+              <td>{{solicitacao.cod}}</td>
+              <td>{{solicitacao.data_abertura}}</td>
+              <td>{{solicitacao.titulo}}</td>
+              <td>{{solicitacao.topico}}</td>
+              <td>{{solicitacao.responsavel}}</td>
+              <td>{{solicitacao.situacao}}</td>
+          </tr>
+      </ng-template>
+  </p-table>
+  </div>
+</div>

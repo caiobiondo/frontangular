@@ -1,0 +1,59 @@
+:host {
+  display: flex;
+  height: 100%;
+  background: #fff;
+  box-shadow: 3px 0 4px rgb(0 0 0 / 25%);
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  width: 90px;
+}
+
+nav:hover {
+  width: 200px;
+}
+
+.active {
+  background-color: #fcb62b;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 71px;
+  transition: all ease-in-out 0.2s;
+}
+
+.item:hover {
+  background-color: #fcb62b93;
+}
+nav:hover .item:hover p, nav:hover .item:not(:hover) p {
+  display: block;
+}
+.item .icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 30px;
+  margin-right: 15px;
+}
+
+.item .icon img {
+  width: 24px;
+  height: 28px;
+  margin: auto;
+}
+
+.item .icon i {
+  color: #000000;
+}
+.item p {
+  display: none;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 19px;
+}

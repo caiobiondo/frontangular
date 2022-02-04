@@ -1,0 +1,46 @@
+form {
+  width: 70%;
+  margin: 35px 0;
+}
+
+form button {
+  margin-right: 5%!important;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+.form-group span {
+  font-size: 9px;
+  margin-right: 5%;
+}
+
+.passRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.passRow input {
+  margin-right: 1%;
+}
+.form-group + div {
+  margin-top: 20px;
+}
+
+label {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 25px;
+  color: #fffafa;
+}
+
+.textSend {
+  text-align: center;
+  padding: 5%;
+}
+.textSend p {
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 20px;
+  margin-bottom: 5%;
+}

@@ -1,0 +1,62 @@
+<div class="container-dashboard">
+  <div class="content">
+    <header>
+      <img src="./assets/logo-white.png" alt="" />
+      <h1>Cadastre-se</h1>
+      <span class="close">
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 14 14"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z"
+            fill="#FFFAFA"
+          />
+        </svg>
+      </span>
+    </header>
+
+    <form [formGroup]="signUpKeyCloakForm" (ngSubmit)="formSubmit()" *ngIf="isValidToken">
+      <div class="form-group">
+        <label for="">CNPJ*</label>
+        <input type="text" formControlName="cnpj" mask="00.000.000/0000-00" placeholder="Ex: 12.345.678/0001-90" maxlength="18"/>
+        <div class="error" *ngIf="signUpKeyCloakForm.controls['cnpj'].invalid && (signUpKeyCloakForm.controls['cnpj'].dirty || signUpKeyCloakForm.controls['cnpj'].touched)">
+          <span>CNPJ é obrigatório!</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="">Razão Social</label>
+        <input type="text" formControlName="razao_social" />
+        <div class="error" *ngIf="signUpKeyCloakForm.controls['razao_social'].invalid && (signUpKeyCloakForm.controls['razao_social'].dirty || signUpKeyCloakForm.controls['razao_social'].touched)">
+          <span>Razão Social é obrigatório!</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="">Telefone*</label>
+        <input type="text" formControlName="telefone" mask="(00)00000-0000" placeholder="Ex:(51)98765-4321"/>
+        <div class="error" *ngIf="signUpKeyCloakForm.controls['telefone'].invalid && (signUpKeyCloakForm.controls['telefone'].dirty || signUpKeyCloakForm.controls['telefone'].touched)">
+          <span>Telefone é obrigatório!</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="">Foto <span>(opicional)</span></label>
+        <div class="photoRow">
+          <input type="text" formControlName="nameFile" />
+          <input type="file" accept="image/*" style="display: none;" (change)="onUpload(file.files)" #file />
+          <span (click)="file.click()"><i class="fa-2x fas fa-camera"></i></span>
+        </div>
+      </div>
+
+      <button [disabled]="signUpKeyCloakForm.valid == false ? true : false" type="submit">Cadastrar</button>
+    </form>
+    <div class="textSend" *ngIf="!isValidToken">
+      <p>
+        O link para validar a conta expirou ou não existe.
+      </p>
+    </div>
+  </div>
+</div>

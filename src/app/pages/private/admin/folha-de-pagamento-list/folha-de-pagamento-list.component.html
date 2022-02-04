@@ -1,0 +1,71 @@
+<div class="folha-de-pagamento">
+  <div class="flexRow justify-between mb-5">
+    <div class="folha-de-pagamento-title">
+      <span class="folha-de-pagamento-span mr-3"> >> Relação De Valores Da Folha De Pagamento</span>
+    </div>
+  </div>
+
+  <div class="flexRow justify-start mb-5">
+    <div class="flexRow mr-2">
+      <label class="folha-de-pagamento-company-name">Razão Social</label>
+      <select class="folha-de-pagamento-input">
+        <option value="">TAG Comercio de Livros LTDA</option>
+      </select>
+    </div>
+
+    <div class="flexRow mr-2">
+      <label class="folha-de-pagamento-company-name">CNPJ</label>
+      <input class="folha-de-pagamento-input" type="text"  mask="00.000.000/0000-00">
+    </div>
+
+    <div class="flexRow">
+      <label class="folha-de-pagamento-company-name">Competência</label>
+      <select class="folha-de-pagamento-input">
+        <option value="">01/01/2021</option>
+      </select>
+    </div>
+  </div>
+
+  <div>
+    <p-table [value]="folhasDePagamento">
+      <ng-template pTemplate="header">
+          <tr>
+              <th pSortableColumn="calculeType">Tipo de Cálculo </th>
+              <th pSortableColumn="payrollCode">Código Folha </th>
+              <th pSortableColumn="coworkerName">Nome do Colaborador </th>
+
+              <th pSortableColumn="addNight">Adicional Noturno </th>
+              <th pSortableColumn="missHour">HS Falta </th>
+              <th pSortableColumn="missHourDST">HS Falta DST</th>
+              <th pSortableColumn="missHour50">HS Falta 50%</th>
+              <th pSortableColumn="missHour100">HS Falta 100%</th>
+
+              <th pSortableColumn="salaryAdvanced">Desc. Adiantamento Salarial</th>
+              <th pSortableColumn="homeOffice">Ajuda de Custo (Home Office)</th>
+              <th pSortableColumn="descPI">Desc. Assinaturas Inéditos PI</th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-fp>
+          <tr>
+              <td>{{fp.calculeType}}</td>
+              <td>{{fp.payrollCode}}</td>
+              <td>{{fp.coworkerName}}</td>
+
+              <td>{{fp.addNight }}</td> <!--| date:"HH:mm:ss"-->
+              <td>{{fp.missHour }}</td>
+              <td>{{fp.missHourDST }}</td>
+              <td>{{fp.missHour50 }}</td>
+              <td>{{fp.missHour100 }}</td>
+
+              <td>{{fp.salaryAdvanced | currency:'BRL'}}</td>
+              <td>{{fp.homeOffice | currency:'BRL'}}</td>
+              <td>{{fp.descPI | currency:'BRL'}}</td>
+          </tr>
+      </ng-template>
+    </p-table>
+    <div class="flexRow justify-end mt15px">
+      <!-- <button class="btn-save mr-2">SALVAR</button> -->
+      <button class="btn-send">ENVIAR</button>
+    </div>
+  </div>
+</div>

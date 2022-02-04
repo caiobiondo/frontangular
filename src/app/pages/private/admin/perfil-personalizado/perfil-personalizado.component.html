@@ -1,0 +1,58 @@
+<div class="perfil-personalizado">
+  <div class="flexRow mb-5">
+    <div class="flexRow aligh-center perfil-personalizado-title">
+      <span class="perfil-personalizado-span"> >> Perfil Personalizado ({{empresa.razao_social}})</span>
+    </div>
+  </div>
+
+  <form [formGroup]="perfilPersonalizadoForm" (ngSubmit)="save()">
+    <div class="perfil-personalizado-card card-radius-open">
+      >> <input class="mr15px" formControlName="nomePerfilPersonalizado"> <span><i class="fas fa-pen"></i></span>
+    </div>
+    <div class="perfil-personalizado-card2">
+      <div class="flexRow justify-between aligh-center">
+        <div class="flexRow">
+        </div>
+        <div>
+          <button class="perfil-personalizado-btn">Salvar</button>
+        </div>
+      </div>
+      <div class="flexRow justify-start">
+
+        <div class="mr15px">
+
+          <p class="card-title">Folha de Pagamento</p>
+          <div class="flexRow aligh-center">
+            <p-inputSwitch formControlName="folhaDePagamentoEnviar" class="mr15px"></p-inputSwitch>
+            <div class="textColorGray">Enviar Folha de Pagamento</div>
+          </div>
+          <div class="flexRow aligh-center">
+            <p-inputSwitch formControlName="folhaDePagamentoVisualizar" class="mr15px"></p-inputSwitch>
+            <div class="textColorGray">Visualizar Folha de Pagamento</div>
+          </div>
+          <div class="flexRow aligh-center">
+            <p-inputSwitch formControlName="folhaDePagamentoBaixar" class="mr15px"></p-inputSwitch>
+            <div class="textColorGray">Baixar Folha de Pagamento</div>
+          </div>
+          <div class="flexRow aligh-center">
+            <p-inputSwitch formControlName="folhaDePagamentoPreencher" class="mr15px"></p-inputSwitch>
+            <div class="textColorGray">Preencher Folha de Pagamento</div>
+          </div>
+        </div>
+
+        <div class="mr15px">
+          <p class="card-title">Solicitações</p>
+          <div class="flexRow aligh-center">
+            <p-inputSwitch formControlName="solicitacoesAbrir" class="mr15px"></p-inputSwitch>
+            <div class="textColorGray">Abrir solicitações</div>
+          </div>
+          <div class="flexRow aligh-center">
+            <p-inputSwitch formControlName="solicitacoesVisualizar" class="mr15px"></p-inputSwitch>
+            <div class="textColorGray">Visualizar solicitações</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+</div>
